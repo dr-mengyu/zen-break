@@ -1,0 +1,54 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ZenBreak.ViewModels"
+        x:Class="ZenBreak.Views.BreakWindow"
+        x:DataType="vm:MainViewModel"
+        Title="On Break"
+        Width="350" Height="300"
+        WindowStartupLocation="CenterScreen"
+        CanResize="False"
+        ShowInTaskbar="False"
+        Topmost="True"
+        SystemDecorations="BorderOnly"
+        Background="#FF1E1E2E">
+    
+    <Window.Styles>
+        <Style Selector="Button.primary">
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="Padding" Value="20,12"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Background" Value="#FF94E2D5"/>
+            <Setter Property="Foreground" Value="#FF1E1E2E"/>
+        </Style>
+    </Window.Styles>
+    
+    <Border CornerRadius="12" Background="#FF1E1E2E" Padding="24">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="16">
+            
+            <!-- Icon/Emoji -->
+            <TextBlock Text="🥛" FontSize="28" HorizontalAlignment="Center"/>
+            
+            <!-- Title -->
+            <TextBlock Text="You're on a break!" 
+                       FontSize="22" 
+                       FontWeight="Bold" 
+                       Foreground="#FF94E2D5"
+                       HorizontalAlignment="Center"/>
+            
+            <!-- Break duration counter -->
+            <TextBlock Text="{Binding BreakTimeText}" 
+                       FontSize="28" 
+                       FontWeight="SemiBold"
+                       Foreground="#FFCDD6F4"
+                       HorizontalAlignment="Center"/>
+            
+            <!-- Back button -->
+            <Button Classes="primary" 
+                    Content="I'm Back!" 
+                    HorizontalAlignment="Center"
+                    Click="OnImBackClick"/>
+            
+        </StackPanel>
+    </Border>
+</Window>
